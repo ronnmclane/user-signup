@@ -5,8 +5,6 @@ import os
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-
-
 @app.route("/")
 def index():
     return render_template('form.html')
@@ -43,8 +41,6 @@ def contains(x):
     if a==1 and b>=1:
         return True
                 
-
-
 @app.route('/', methods=['POST'])
 def validate_input():
     name = request.form.get('name')
@@ -102,8 +98,6 @@ def hello():
     name = request.args.get('name')
     return render_template('greeting.html', name = name)
 
-
-
 def is_integer(num):
     try:  
         int(num)
@@ -144,11 +138,9 @@ def validate_time():
     else:
         return render_template('form.html', hours_error=hours_error, minutes_error=minutes_error, hours=hours, minutes= minutes)
 
-
 @app.route('/valid-time')
 def valid_time():
     time = request.args.get('time')
     return '<h1>You submitted {0}. Thanks for submitting a valid time!</h1>'.format(time)
-
 
 app.run()
